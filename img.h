@@ -10,27 +10,27 @@
 // the only difference is where the file count is stored
 #pragma pack(1)
 struct IMG_header {
-    char sig[4];		// 0x0
-    u32 im2_file_count;	// 0x4	// use this field for im2
-    u32 im3_file_count;	// 0x8	// use this field for im3
-    u32 ukw1;			// 0xC
+    char sig[4];        // 0x0
+    u32 im2_file_count; // 0x4 // use this field for im2
+    u32 im3_file_count; // 0x8 // use this field for im3
+    u32 ukw1;           // 0xC
 }; // 16 bytes
 
 #pragma pack(1)
 struct IMG_im2_file_entry {
-    char name[32];	// 0x0
-    u32 offset;		// 0x20
-    u32 ukw0;		// 0x24
-    u32 ukw1;		// 0x28
-    u32 ukw2;		// 0x2C
+    char name[32];  // 0x0
+    u32 offset;     // 0x20
+    u32 ukw0;       // 0x24
+    u32 ukw1;       // 0x28
+    u32 ukw2;       // 0x2C
 }; // 48 bytes
 
 #pragma pack(1)
 struct IMG_im3_file_entry
 {
     char name[32];      // 0x0
-    u32 ukw0;			// 0x20
-    u32 offset;			// 0x24
+    u32 ukw0;           // 0x20
+    u32 offset;         // 0x24
     u32 ukw1;           // 0x28
     char pad[8];        // 0x2C
     u32 file_length;    // 0x34
