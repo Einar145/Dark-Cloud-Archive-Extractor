@@ -99,9 +99,6 @@ int extract_archive(const char* filename, bool create_directory = true)
 
         // create and write to the new file (and directory if enabled)
         write_file(path, entry.name, std::move(fdat), next_length);
-        
-        // std::ofstream outfile(path + entry.name, std::ios::binary);
-        // outfile.write((char*)fdat.get(), entry.file_length);
 
         file.seekg(next_offs);
     }
