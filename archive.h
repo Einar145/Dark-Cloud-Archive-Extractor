@@ -16,7 +16,7 @@ struct ARCH_file_entry {
     bool end() {
         return name[0] == '\0' || file_length == -1 || end_offset == -1;
     }
-};
+}; // 180 bytes
 
 struct arch_error {
     enum {
