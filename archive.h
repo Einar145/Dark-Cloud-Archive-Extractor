@@ -44,28 +44,6 @@ struct arch_error {
 	}
 };
 
-// not really that accurate
-// TODO: loop through and see if offsets make sense(are valid)
-// bool is_archive_file(std::ifstream& file)
-// {
-// 	int lastp = file.tellg();
-// 	file.seekg(std::ios::end);
-// 	int fsize = file.tellg();
-// 	if (fsize <= ARCH_ENTRY_SIZE * 2)
-// 		return false;
-// 	ARCH_file_entry last;
-// 	file.seekg(fsize - ARCH_ENTRY_SIZE);
-// 	file.read((char*)&last, sizeof(last));
-// 	bool mt = last.end();
-// 	file.seekg(lastp);
-// 	return mt;
-// }
-// bool is_archive_file(const char* filename)
-// {
-// 	std::ifstream file(filename, std::ios::binary | std::ios::ate);
-// 	return is_archive_file(file);
-// }
-
 // return error code if we need to know what went wrong
 int extract_archive(const char* filename, bool create_directory = true)
 {
