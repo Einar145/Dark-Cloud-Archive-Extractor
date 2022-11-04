@@ -8,10 +8,10 @@
 #pragma pack(1)
 struct ARCH_file_entry {
     char name[64];          // 0x0
-    u32 metadata_length;
-    i32 file_length;
-    i32 end_offset;
-    u32 unknown1;
+    u32 metadata_length;    // 0x40
+    i32 file_length;        // 0x44
+    i32 end_offset;         // 0x48
+    u32 unknown1;           // 0x4C
 
     bool end() {
         return name[0] == '\0' || file_length == -1 || end_offset == -1;
