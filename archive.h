@@ -44,7 +44,7 @@ struct arch_error {
     }
 };
 
-// return error code if we need to know what went wrong
+// returns arch_error
 int extract_archive(const char* filename, bool create_directory = true)
 {
     std::ifstream file(filename, std::ios::binary | std::ios::ate);
