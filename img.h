@@ -84,7 +84,7 @@ constexpr std::array<std::array<char, 4>, 3> img_signatures = { "IMG", "IM2", "I
 // }
 
 
-// for these functions its expected that we have checked the signature and that we are at offset IMG_HEADER_SIZE
+// these functions its expected that we have checked the signature and that we are at offset IMG_HEADER_SIZE
 int extract_im2_img(std::ifstream& file, const std::string& filename, int file_num, int fsize,  bool mkdir = true)
 {
     // allocate variable number of file metadata
