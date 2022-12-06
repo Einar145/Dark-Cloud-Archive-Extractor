@@ -8,7 +8,7 @@
 std::this_thread::sleep_for(std::chrono::seconds(SLEEP_TIME)); \
 exit(ec)
 
-void condition_fail_exit(bool condition, const char* msg)
+void condition_exit(bool condition, const char* msg)
 {
     if (condition)
     {
@@ -28,13 +28,13 @@ int main(int argc, char** argv)
 #else
     // try to detect another way
     uint16_t byteorder = 0x0001;
-    condition_fail_exit(!((char*)&byteorder)[0], "system must be little endian");
+    condition_exit(!((char*)&byteorder)[0], "system must be little endian");
 #endif
 
-    condition_fail_exit(argc != 2, "invalid number of arguments...");
+    condition_exit(argc != 2, "invalid number of arguments...");
     fs::path filepath(argv[1]);
-    condition_fail_exit(!fs::exists(filepath), "file does not exist...");
-    condition_fail_exit(fs::is_empty(filepath), "file is empty...");
+    condition_exit(!fs::exists(filepath), "file does not exist...");
+    condition_exit(fs::is_empty(filepath), "file is empty...");
 
     std::string path = filepath.string();
     std::ifstream file(path, std::ios::binary);
