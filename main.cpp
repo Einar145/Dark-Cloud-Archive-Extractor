@@ -25,6 +25,10 @@ int main(int argc, char** argv)
     #include <bit>
     // if you try to compile with big endian processor
     static_assert(std::endian::native == std::endian::little, "program works only on little endian systems");
+#else
+    // try to detect another way
+    uint16_t byteorder = 0x0001;
+    condition_fail_exit(!((char*)&byteorder)[0], "system must be little endian");
 #endif
 
     condition_fail_exit(argc != 2, "invalid number of arguments...");
